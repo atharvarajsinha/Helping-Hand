@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helping Hand : Fundraiser Site</title>
+    <link rel="stylesheet" href="\assets\styles\index.css">
+</head>
+<body>
+    <div include-html="/assets/components/navbar.html"></div>
+
+    <section class="banner">
+        <div class="content-container">
+            <h1>Need funds to pay for a medical emergeny or social cause?</h1>
+            <div class="stats">
+                <div>
+                    <span>72 Lakh+</span>
+                    <p>Donors</p>
+                </div>
+                <div>
+                    <span>3.2 Lakh+</span>
+                    <p>Fundraisers</p>
+                </div>
+            </div>
+            <a href="#" class="cta-button">Start a Fundraiser for FREE</a>
+            <a href="crowdfund.html" class="cta-button">CrowdFund</a>
+        </div>
+    </section>
+
+    <div class="section">
+        <h1>Trending Fundraisers</h1>
+        <h2>View the fundraisers that are most active right now</h2>
+
+        <div class="card-container" id="card-container">
+            <!--Dynamic Data-->
+        </div>
+    </div>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script>includeHTML();</script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crowdfunding Section</title>
+  <style>
+    /* Container styling */
+    .crowdfunding-section {
+      position: relative;
+      background-image: url('//assets/images/crowdfund.png'); /* Replace with your image URL */
+      background-size: cover;
+      background-position: center;
+      height: 400px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding-top: 20px;
+      padding-right: 20px;
+    }
+
+    .card {
+      background: transparent;
+      width: 300px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      color: white;
+    }
+
+    .card h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .card input {
+      padding: 10px;
+      width: 80%;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .donate-btn {
+      background-color: #4CAF50; /* Your theme color */
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .donate-btn:hover {
+      background-color: #45a049;
+    }
+
+    .thank-you-message {
+      display: none;
+      font-size: 20px;
+      color: #4CAF50;
+      margin-top: 20px;
+    }
+
+    /* Responsive styling */
+    @media (max-width: 768px) {
+      .crowdfunding-section {
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        padding-top: 40px;
+      }
+
+      .card {
+        background-color: rgba(0, 0, 0, 0.6); /* Adding background on small screens */
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="crowdfunding-section">
+    <div class="card">
+      <h1>Crowdfunding</h1>
+      <p>Donate globally to help students and children from the medical as well as education help</p>
+      <input type="number" id="donation-amount" placeholder="Enter Amount (Min 50)" min="50">
+      <button class="donate-btn" onclick="donate()">Donate</button>
+      <div class="thank-you-message" id="thank-you-message">Thank you for donating!</div>
+    </div>
+  </div>
+
+  <script>
+    function donate() {
+      const donationAmount = document.getElementById("donation-amount").value;
+      const thankYouMessage = document.getElementById("thank-you-message");
+      
+      if (donationAmount >= 50) {
+        alert
+      } else {
+        alert("Minimum donation amount is 50.");
+      }
+    }
+  </script>
+
+</body>
+</html>

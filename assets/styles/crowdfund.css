@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.crowdfunding-section {
+    position: relative;
+    background-image: url('/assets/images/crowdfund.png');
+    background-size: cover;
+    background-position: left;
+    height: 80vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 200px;
+}
+
+.card {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 50px;
+    width: 400px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+#donation-name {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#donation-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.donate-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.donate-button:hover {
+    background-color: #218838;
+}
+@media (max-width: 768px) {
+    .crowdfunding-section {
+        padding-right: 20px;
+    }
+
+    .card {
+        width: 90%;
+    }
+}
