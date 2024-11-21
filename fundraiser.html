@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundraiser : Helping Hand</title>
+    <link rel="stylesheet" href="/assets/styles/fundraiser.css">
+    <script src="/assets/scripts/fundraiser.js"></script>
+</head>
+<body>
+    <div include-html="/assets/components/navbar.html"></div>
+
+    <div class="container">
+        <h1>Start a Fundraiser</h1>
+        <form action="" id="fundraiserform">
+            <div class="form-group">
+                <label for="amount">Amount to be Raised (Rs.)</label>
+                <input type="number" id="amount" name="amount" required>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Fundraiser Title</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="image">Choose Image</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+            </div>
+
+            <div class="form-group">
+                <label for="person">Fundraise By</label>
+                <input type="text" id="person" name="person" required>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select id="category" name="category" required>
+                    <option value="Medical">Medical</option>
+                    <option value="Education">Education</option>
+                    <option value="Animal Welfare">Animal Welfare</option>
+                    <option value="Disaster and Relief">Disaster and Relief</option>
+                    <option value="Women and Girls">Women and Girls</option>
+                    <option value="Food and Hunger">Food and Hunger</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="education">Education Qualification</label>
+                <select id="education" name="education" required>
+                    <option value="Below 10th Pass">Below 10th Pass</option>
+                    <option value="10th Pass">10th Pass</option>
+                    <option value="12th Pass">12th Pass</option>
+                    <option value="Bachelor">Bachelor</option>
+                    <option value="Postgraduate">Postgraduate</option>
+                    <option value="Doctorate">Doctorate</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="employment">Employment Status</label>
+                <select id="employment" name="employment" required>
+                    <option value="Employed">Employed</option>
+                    <option value="Unemployed">Unemployed</option>
+                    <option value="Student">Student</option>
+                    <option value="Retired">Retired</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+            </div>
+        
+            <button type="button" id="submitBtn" onclick="submitForm()">Submit</button>
+        </form>
+    </div>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script>includeHTML();</script>
+</body>
+</html>
