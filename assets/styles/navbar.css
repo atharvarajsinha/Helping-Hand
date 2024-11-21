@@ -7,7 +7,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #d4edda;
+    background-color: #b7e4c7;
     padding: 10px 50px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -18,13 +18,13 @@ body {
 }
 
 .navbar .logo img {
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: auto;
     margin-right: 10px;
 }
 
 .navbar .logo span {
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: bold;
     color: #155724;
 }
@@ -82,22 +82,23 @@ body {
     background: none;
     border: none;
     cursor: pointer;
+    padding: 0px;
 }
 
 @media screen and (max-width: 768px) {
     .navbar .links {
-      display: none;
+        display: none;
     }
 
     .toggle-btn {
-      display: block;
+        display: block;
     }
 
     .toggle-menu {
-      display: none;
+        display: none;
     }
 
     .toggle-menu.show {
-      display: flex;
+        display: flex;
     }
 }

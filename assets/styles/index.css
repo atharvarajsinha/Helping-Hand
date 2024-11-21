@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-
+    background-color: #fefae0;
 }
 
 .banner {
@@ -116,11 +116,13 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     width: 300px;
     overflow: hidden;
+    text-align: left;
     transition: transform 0.3s;
 }
 
 .card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
 .card img {
@@ -171,4 +173,74 @@ body {
 
 .card button:hover {
     background-color: #218838;
+}
+
+/*Why we stand out*/
+#sec2 {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#sec2 h1 {
+    color: #28a745;
+    margin-bottom: 30px;
+}
+
+#sec2 .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+#sec2 .card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#sec2 .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+#sec2 .icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    background-color: #007bff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+}
+
+#sec2 .card h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#sec2 .card p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    #sec2 .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #sec2 .card {
+        width: 90%;
+    }
 }

@@ -3,110 +3,237 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crowdfunding Section</title>
+  <title>Start a Fundraiser</title>
   <style>
-    /* Container styling */
-    .crowdfunding-section {
-      position: relative;
-      background-image: url('//assets/images/crowdfund.png'); /* Replace with your image URL */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('/assets/images/image.png'); /* Replace with your background image URL */
       background-size: cover;
       background-position: center;
-      height: 400px;
-      display: flex;
-      justify-content: flex-end;
-      align-items: flex-start;
-      padding-top: 20px;
-      padding-right: 20px;
-    }
-
-    .card {
-      background: transparent;
-      width: 300px;
-      padding: 20px;
+      position: relative;
       text-align: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      color: white;
     }
 
-    .card h1 {
-      font-size: 24px;
-      margin-bottom: 10px;
+    .container {
+      text-align: left;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.9); /* White background with transparency */
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(15px);
+      z-index: 2;
+      overflow: auto;
+      max-height: calc(100vh - 40px);
     }
 
-    .card p {
-      font-size: 18px;
+    h1 {
+      text-align: center;
+      color: #333;
       margin-bottom: 20px;
     }
 
-    .card input {
-      padding: 10px;
-      width: 80%;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+    .form-group {
+      margin-bottom: 15px;
     }
 
-    .donate-btn {
-      background-color: #4CAF50; /* Your theme color */
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    input[type="file"]::file-selector-button {
+      background-color: #4CAF50;
       color: white;
       padding: 10px 20px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    input[type="file"]::file-selector-button:hover {
+      background-color: #388e3c;
+    }
+
+    select {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+      background-color: white;
+    }
+
+    select option {
+      padding: 10px;
+    }
+
+    select:hover, select:focus {
+      background-color: #f0f0f0;
+      outline: none;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
       font-size: 16px;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
     }
 
-    .donate-btn:hover {
-      background-color: #45a049;
+    input:focus, select:focus, textarea:focus {
+      border-color: #007BFF;
+      outline: none;
     }
 
-    .thank-you-message {
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-group.hidden {
       display: none;
-      font-size: 20px;
-      color: #4CAF50;
-      margin-top: 20px;
     }
 
-    /* Responsive styling */
-    @media (max-width: 768px) {
-      .crowdfunding-section {
-        height: auto;
-        justify-content: center;
-        align-items: center;
-        padding-top: 40px;
-      }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #007BFF;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
 
-      .card {
-        background-color: rgba(0, 0, 0, 0.6); /* Adding background on small screens */
-        width: 90%;
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 15px;
       }
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <h1>Start a Fundraiser</h1>
+    <form id="fundraiserForm">
+      <div class="form-group">
+        <label for="amount">Amount to be Raised (Rs.):</label>
+        <input type="number" id="amount" name="amount" required>
+      </div>
 
-  <div class="crowdfunding-section">
-    <div class="card">
-      <h1>Crowdfunding</h1>
-      <p>Donate globally to help students and children from the medical as well as education help</p>
-      <input type="number" id="donation-amount" placeholder="Enter Amount (Min 50)" min="50">
-      <button class="donate-btn" onclick="donate()">Donate</button>
-      <div class="thank-you-message" id="thank-you-message">Thank you for donating!</div>
-    </div>
+      <div class="form-group">
+        <label for="title">Fundraiser Title:</label>
+        <input type="text" id="title" name="title" required>
+      </div>
+
+      <div class="form-group">
+        <label for="image">Choose Image:</label>
+        <input type="file" id="image" name="image" accept="image/*" required>
+      </div>
+
+      <div class="form-group">
+        <label for="person">Fundraise By:</label>
+        <input type="text" id="person" name="person" required>
+      </div>
+
+      <div class="form-group">
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+          <option value="Medical">Medical</option>
+          <option value="Education">Education</option>
+          <option value="Animal Welfare">Animal Welfare</option>
+          <option value="Disaster and Relief">Disaster and Relief</option>
+          <option value="Women and Girls">Women and Girls</option>
+          <option value="Food and Hunger">Food and Hunger</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group hidden" id="otherCauseGroup">
+        <label for="otherCause">Specify Cause:</label>
+        <input type="text" id="otherCause" name="otherCause">
+      </div>
+
+      <div class="form-group">
+        <label for="education">Education Qualification:</label>
+        <select id="education" name="education" required>
+          <option value="Below 10th Pass">Below 10th Pass</option>
+          <option value="10th Pass">10th Pass</option>
+          <option value="12th Pass">12th Pass</option>
+          <option value="Bachelor">Bachelor</option>
+          <option value="Postgraduate">Postgraduate</option>
+          <option value="Doctorate">Doctorate</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="employment">Employment Status:</label>
+        <select id="employment" name="employment" required>
+          <option value="Employed">Employed</option>
+          <option value="Unemployed">Unemployed</option>
+          <option value="Student">Student</option>
+          <option value="Retired">Retired</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
+      </div>
+
+      <button type="button" onclick="submitForm()">Submit</button>
+    </form>
   </div>
 
   <script>
-    function donate() {
-      const donationAmount = document.getElementById("donation-amount").value;
-      const thankYouMessage = document.getElementById("thank-you-message");
-      
-      if (donationAmount >= 50) {
-        alert
+    document.getElementById('category').addEventListener('change', function () {
+      const otherCauseGroup = document.getElementById('otherCauseGroup');
+      if (this.value === 'Other') {
+        otherCauseGroup.classList.remove('hidden');
       } else {
-        alert("Minimum donation amount is 50.");
+        otherCauseGroup.classList.add('hidden');
       }
+    });
+
+    function submitForm() {
+      const form = document.getElementById('fundraiserForm');
+      if (!form.checkValidity()) {
+        alert('Please fill out all required fields.');
+        return;
+      }
+
+      const formData = new FormData(form);
+      const fundraiser = {
+        image: formData.get('image').name,
+        title: formData.get('title'),
+        person: formData.get('person'),
+        category: formData.get('category') === 'Other' ? formData.get('otherCause') : formData.get('category'),
+        amountToBeRaised: `Rs. ${formData.get('amount')}`,
+        amountRaised: "Rs. 0",
+        description: formData.get('description'),
+      };
+
+      console.log(fundraiser);
+      alert('Fundraiser submitted successfully! Open console to view data.');
     }
   </script>
-
 </body>
 </html>
