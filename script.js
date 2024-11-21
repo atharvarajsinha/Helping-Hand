@@ -48,46 +48,68 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-const cardContainer = document.getElementById("card-container");
+// Function to create cards dynamically
 function createCards(data) {
-  data.forEach((item) => {
-    const card = document.createElement("div");
-    card.classList.add("card");
+    // Get the card container element
+    const cardContainer = document.getElementById("card-container");
 
-    const img = document.createElement("img");
-    img.src = item.image;
-    img.alt = item.title;
+    // Clear existing content
+    cardContainer.innerHTML = "";
 
-    const cardContent = document.createElement("div");
-    cardContent.classList.add("card-content");
+    // Create cards from the provided data
+    data.forEach((item) => {
+        const card = document.createElement("div");
+        card.classList.add("card");
 
-    const title = document.createElement("div");
-    title.classList.add("card-title");
-    title.textContent = item.title;
+        const img = document.createElement("img");
+        img.src = item.image;
+        img.alt = item.title;
 
-    const person = document.createElement("div");
-    person.classList.add("card-person");
-    person.textContent = `By: ${item.person}`;
+        const cardContent = document.createElement("div");
+        cardContent.classList.add("card-content");
 
-    const stats = document.createElement("div");
-    stats.classList.add("card-stats");
-    stats.innerHTML = `Amount to be Raised: <span>${item.amountToBeRaised}</span>
-                       <br>
-                       Amount Raised: <span>${item.amountRaised}</span>`;
+        const title = document.createElement("div");
+        title.classList.add("card-title");
+        title.textContent = item.title;
 
-    const button = document.createElement("button");
-    button.textContent = "Donate Now";
+        const person = document.createElement("div");
+        person.classList.add("card-person");
+        person.textContent = `By: ${item.person}`;
 
-    cardContent.appendChild(title);
-    cardContent.appendChild(person);
-    cardContent.appendChild(stats);
-    cardContent.appendChild(button);
+        const stats = document.createElement("div");
+        stats.classList.add("card-stats");
+        stats.innerHTML = `Amount to be Raised: <span>${item.amountToBeRaised}</span>
+                           <br>
+                           Amount Raised: <span>${item.amountRaised}</span>`;
 
-    card.appendChild(img);
-    card.appendChild(cardContent);
+        const button = document.createElement("button");
+        button.textContent = "Donate Now";
 
-    cardContainer.appendChild(card);
-  });
+        cardContent.appendChild(title);
+        cardContent.appendChild(person);
+        cardContent.appendChild(stats);
+        cardContent.appendChild(button);
+
+        card.appendChild(img);
+        card.appendChild(cardContent);
+
+        cardContainer.appendChild(card);
+    });
 }
 
-createCards(fundraisers);
+// Function to load and filter active fundraisers from localStorage
+function loadActiveFundraisers() {
+    // Retrieve fundraisers from localStorage
+    const localData = JSON.parse(localStorage.getItem('fundraiserData')) || [];
+
+    // Filter for active fundraisers
+    const activeFundraisers = localData
+        .filter((item) => item.status === "active")
+        .slice(0, 3); // Take only the top 3 active fundraisers
+    console.log(activeFundraisers);
+    // Create cards for the filtered data
+    createCards(activeFundraisers);
+}
+
+// Load and display the active fundraisers on page load
+loadActiveFundraisers();
