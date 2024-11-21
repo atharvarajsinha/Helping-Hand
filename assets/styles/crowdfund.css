@@ -11,7 +11,7 @@ body, html {
 
 .crowdfunding-section {
     position: relative;
-    background-image: url('assets/images/crowdfund.png');
+    background-image: url('../images/crowdfund.png');
     background-size: cover;
     background-position: left;
     height: 80vh;
