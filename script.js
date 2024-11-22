@@ -2,7 +2,6 @@ function includeHTML(callback) {
     let elements = document.querySelectorAll("[include-html]");
     let totalElements = elements.length;
     let processedElements = 0;
-
     elements.forEach((elmnt) => {
         let file = elmnt.getAttribute("include-html");
         if (file) {
@@ -48,15 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Function to create cards dynamically
 function createCards(data) {
-    // Get the card container element
     const cardContainer = document.getElementById("card-container");
-
-    // Clear existing content
     cardContainer.innerHTML = "";
-
-    // Create cards from the provided data
     data.forEach((item) => {
         const card = document.createElement("div");
         card.classList.add("card");
@@ -70,10 +63,12 @@ function createCards(data) {
 
         const title = document.createElement("div");
         title.classList.add("card-title");
+        title.style.overflowWrap = "break-word";
         title.textContent = item.title;
 
         const person = document.createElement("div");
         person.classList.add("card-person");
+        person.style.overflowWrap = "break-word";
         person.textContent = `By: ${item.person}`;
 
         const stats = document.createElement("div");
@@ -84,6 +79,10 @@ function createCards(data) {
 
         const button = document.createElement("button");
         button.textContent = "Donate Now";
+        button.addEventListener("click", () => {
+            window.location.href = `donation.html?id=${item.id}`;
+        });
+        
 
         cardContent.appendChild(title);
         cardContent.appendChild(person);
@@ -97,19 +96,9 @@ function createCards(data) {
     });
 }
 
-// Function to load and filter active fundraisers from localStorage
 function loadActiveFundraisers() {
-    // Retrieve fundraisers from localStorage
     const localData = JSON.parse(localStorage.getItem('fundraiserData')) || [];
-
-    // Filter for active fundraisers
-    const activeFundraisers = localData
-        .filter((item) => item.status === "active")
-        .slice(0, 3); // Take only the top 3 active fundraisers
-    console.log(activeFundraisers);
-    // Create cards for the filtered data
+    const activeFundraisers = localData.filter((item) => item.status === "active").slice(0, 3);
     createCards(activeFundraisers);
 }
-
-// Load and display the active fundraisers on page load
 loadActiveFundraisers();

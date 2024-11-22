@@ -1,0 +1,193 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #444;
+}
+
+.donation-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.left-section {
+    flex: 1;
+    min-width: 300px;
+    word-wrap: break-word;
+}
+
+.left-section img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#fundraiser-stats p {
+    font-size: 1.1rem;
+    margin: 5px 0;
+}
+
+.right-section {
+    flex: 1;
+    min-width: 300px;
+    padding: 10px 20px;
+    border-left: 2px solid #ddd;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    font-size: 1rem;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #218838;
+}
+
+@media (max-width: 768px) {
+    .donation-content {
+        flex-direction: column;
+    }
+
+    .right-section {
+        border-left: none;
+        border-top: 2px solid #ddd;
+        padding-top: 20px;
+    }
+}
+
+.section {
+    padding: 20px;
+}
+
+.section h1 {
+    text-align: center;
+    color: #28a745;
+}
+
+.section h2 {
+    text-align: center;
+    columns: #555;
+    margin-bottom: 20px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+    flex-grow: 1;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card-person {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.card-stats {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.card-stats span {
+    font-weight: bold;
+    color: #28a745;
+}
+
+.card button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+}
+
+.card button:hover {
+    background-color: #218838;
+}

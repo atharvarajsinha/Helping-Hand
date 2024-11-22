@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate</title>
+    <link rel="stylesheet" href="assets/styles/donation.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div include-html="navbar.html"></div>
+
+    <div class="container">
+        <h1 id="fundraiser-title"></h1>
+        <div class="donation-content">
+            <div class="left-section">
+                <img id="fundraiser-image" alt="Fundraiser Image">
+                <p id="fundraiser-description"></p>
+                <div id="fundraiser-stats">
+                    <p>Amount to be Raised: <span id="fundraiser-total"></span></p>
+                    <p>Amount Raised: <span id="fundraiser-raised"></span></p>
+                </div>
+            </div>
+            <div class="right-section">
+                <form id="donation-form">
+                    <label for="donor-name">Name:</label>
+                    <input type="text" id="donor-name" name="donor-name" placeholder="Name of Donor" required>
+
+                    <label for="donation-amount">Donation Amount:</label>
+                    <input type="number" id="donation-amount" name="donation-amount" placeholder="Donation Amount (Min. Rs. 50)" required>
+
+                    <button type="submit">Donate</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h1>Trending Fundraisers</h1>
+        <h2>View the fundraisers that are most active right now</h2>
+
+        <div class="card-container" id="card-container">
+            <!--Dynamic Data-->
+        </div>
+    </div>
+
+    <script src="assets/scripts/donation.js"></script>
+</body>
+</html>
