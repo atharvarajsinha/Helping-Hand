@@ -32,6 +32,7 @@ function submitForm() {
         localStorage.setItem('fundraiserData', JSON.stringify(fundraiserData));
         document.getElementById('fundraiserform').reset();
         alert('Fundraiser added successfully!');
+        window.location.href = `donation.html?id=${newId}`;
     };
     reader.readAsDataURL(imageInput.files[0]);
 }

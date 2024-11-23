@@ -5,7 +5,7 @@ const fundraiser = fundraisers.find((item) => item.id === fundraiserId);
 
 if(!fundraiser) {
     alert("Invalid fundraiser ID.");
-    window.location.href = "index.html";
+    window.location.href = "home.html";
 }
 
 document.getElementById("fundraiser-title").textContent = fundraiser.title;
@@ -40,6 +40,7 @@ document.getElementById("donation-form").addEventListener("submit", (e) => {
     localStorage.setItem("fundraiserData", JSON.stringify(updatedFundraisers));
     alert(`Thank You ${donorName} for giving the Donation of Rs. ${donationAmount}!`);
     document.getElementById("fundraiser-raised").textContent = fundraiser.amountRaised;
+    document.getElementById("donation-form").reset();
 });
 
 function createCards(data) {
