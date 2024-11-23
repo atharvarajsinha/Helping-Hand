@@ -13,9 +13,9 @@ document.getElementById("fundraiser-image").src = fundraiser.image;
 document.getElementById("fundraiser-description").textContent = fundraiser.description;
 document.getElementById("fundraiser-total").textContent = fundraiser.amountToBeRaised;
 document.getElementById("fundraiser-raised").textContent = fundraiser.amountRaised;
-
 document.getElementById("donation-form").addEventListener("submit", (e) => {
     e.preventDefault();
+    const person = fundraiser.person;
     const donorName = document.getElementById("donor-name").value.trim();
     let donationAmount = parseInt(document.getElementById("donation-amount").value, 10);
     const amountRaised = parseInt(fundraiser.amountRaised.replace("Rs. ", ""), 10);
@@ -38,7 +38,7 @@ document.getElementById("donation-form").addEventListener("submit", (e) => {
         item.id === fundraiserId ? fundraiser : item
     );
     localStorage.setItem("fundraiserData", JSON.stringify(updatedFundraisers));
-    alert(`Thank You ${donorName} for giving the Donation of Rs. ${donationAmount}!`);
+    alert(`Thank You ${donorName} for giving the Donation of Rs. ${donationAmount} to ${person}!`);
     document.getElementById("fundraiser-raised").textContent = fundraiser.amountRaised;
     document.getElementById("donation-form").reset();
 });
