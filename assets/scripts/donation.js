@@ -94,6 +94,9 @@ function createCards(data) {
 function loadActiveFundraisers() {
     const localData = JSON.parse(localStorage.getItem('fundraiserData')) || [];
     const activeFundraisers = localData.filter((item) => item.status === "active" && item.category===fundraiser.category && item.id!=fundraiserId).slice(0, 3);
+    if(activeFundraisers.length === 0) {
+        document.getElementById('noCard').style.display = 'block';
+    }
     createCards(activeFundraisers);
 }
 loadActiveFundraisers();

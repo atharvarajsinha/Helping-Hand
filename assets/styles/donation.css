@@ -108,6 +108,7 @@ button:hover {
 .section h1 {
     text-align: center;
     color: #28a745;
+    margin: 20px 0;
 }
 
 .section h2 {
@@ -190,4 +191,10 @@ button:hover {
 
 .card button:hover {
     background-color: #218838;
+}
+
+.noCard {
+    display: none;
+    text-align: center;
+    font-weight: bold;
 }
