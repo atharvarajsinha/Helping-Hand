@@ -10,7 +10,8 @@ if(!fundraiser) {
 
 document.getElementById("fundraiser-title").textContent = fundraiser.title;
 document.getElementById("fundraiser-image").src = fundraiser.image;
-document.getElementById("fundraiser-description").textContent = fundraiser.description;
+document.getElementById("fundraiser-person").textContent = "By: "+fundraiser.person;
+document.getElementById("fundraiser-description").textContent = "Description: "+fundraiser.description;
 document.getElementById("fundraiser-total").textContent = fundraiser.amountToBeRaised;
 document.getElementById("fundraiser-raised").textContent = fundraiser.amountRaised;
 document.getElementById("donation-form").addEventListener("submit", (e) => {
@@ -22,6 +23,11 @@ document.getElementById("donation-form").addEventListener("submit", (e) => {
     const amountToBeRaised = parseInt(fundraiser.amountToBeRaised.replace("Rs. ", ""), 10);
     const remainingAmount = amountToBeRaised - amountRaised;
 
+    if(remainingAmount===0) {
+        alert(`Fundraiser is Completed`);
+        document.getElementById("donation-form").reset();
+        return;
+    }
     if(donationAmount < 50 && remainingAmount >= 50) {
         alert("Minimum donation amount is Rs. 50.");
         return;

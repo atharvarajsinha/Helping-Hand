@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundraiser Finder</title>
+    <link rel="stylesheet" href="assets/styles/browse.css">
+</head>
+<body>
+    <div include-html="navbar.html"></div>
+
+    <section class="banner">
+        <div class="content-container">
+            <h1>Find the Fundraisers</h1>
+        </div>
+    </section>
+
+    <main>
+        <!-- Search Section -->
+        <section class="search-section">
+            <input type="text" id="searchInput" placeholder="Search by title..." oninput="filterCards()">
+            <select id="categoryDropdown" onchange="filterCards()">
+                <option value="all">All Categories</option>
+                <option value="medical">Medical</option>
+                <option value="education">Education</option>
+                <option value="animals">Animal Welfare</option>
+                <option value="disaster">Disaster and Relief</option>
+                <option value="women">Women and Girls</option>
+                <option value="food">Food and Hunger</option>
+                <option value="other">Other</option>
+                <option value="completed">Completed</option>
+            </select>
+        </section>
+
+        <h2 id="dynamicHeading">All Categories</h2>
+        <!-- Card Container -->
+        <section id="card-container" class="card-container">
+            <!-- Active fundraisers will be dynamically injected here -->
+        </section>
+        <br>
+        <br>
+        <!-- Completed Fundraisers Section -->
+        <h2 id="completedHeading">Completed Fundraisers</h2>
+        <section id="completed-section" class="completed-section">
+            <!-- Completed fundraisers or messages will be injected here -->
+        </section>
+    </main>
+    <script src="assets/scripts/browse.js"></script>
+    <script>includeHTMl();</script>
+    <script src="script.js"></script>
+</body>
+</html>

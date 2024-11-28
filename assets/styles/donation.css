@@ -43,9 +43,17 @@ h1 {
     margin-bottom: 10px;
 }
 
+.left-section p {
+    margin: 10px 0;
+    font-weight: bold;
+    color: #555;
+}
+
 #fundraiser-stats p {
     font-size: 1.1rem;
     margin: 5px 0;
+    font-weight: bold;
+    color: #555;
 }
 
 .right-section {
@@ -137,8 +145,7 @@ button:hover {
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .card img {
