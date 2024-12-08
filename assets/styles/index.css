@@ -315,3 +315,104 @@ body {
         flex-direction: column;
     }
 }
+
+.about-section {
+    text-align: center;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-section h1 {
+    color: #28a745;
+    margin-bottom: 40px;
+}
+
+.our-company {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 100px;
+    margin-bottom: 50px;
+    justify-content: center;
+}
+
+.company-logo {
+    width: 300px;
+    height: auto;
+    float: left;
+}
+
+.company-description {
+    max-width: 600px;
+    text-align: left;
+}
+
+.company-description h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.company-description p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+}
+
+.our-team {
+    margin-top: 50px;
+}
+
+.our-team h2 {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.team-member {
+    width: 250px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+}
+
+.team-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.team-member h3 {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.team-member p {
+    font-size: 14px;
+    color: #666;
+    margin: 2px 0;
+}
+
+@media (max-width: 768px) {
+    .our-company {
+        gap: 50px;
+        flex-direction: column;
+    }
+}
+
