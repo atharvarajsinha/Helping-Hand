@@ -3,24 +3,22 @@ const fundraisers = JSON.parse(localStorage.getItem('fundraiserData')) || [];
 function renderFundraisers(filteredFundraisers) {
     const activeContainer = document.getElementById("card-container");
     const completedContainer = document.getElementById("completed-section");
-
     activeContainer.innerHTML = "";
     completedContainer.innerHTML = "";
-
     const activeFundraisers = filteredFundraisers.filter(f => f.status === "active");
     const completedFundraisers = filteredFundraisers.filter(f => f.status === "completed");
-
     // Render active fundraisers
-    if (activeFundraisers.length > 0) {
+    if(activeFundraisers.length > 0) {
         activeFundraisers.forEach(fundraiser => activeContainer.appendChild(createCard(fundraiser)));
-    } else {
+    }
+    else {
         activeContainer.innerHTML = "<p class='no-fundraisers'>No active fundraisers found.</p>";
     }
-
     // Render completed fundraisers
-    if (completedFundraisers.length > 0) {
+    if(completedFundraisers.length > 0) {
         completedFundraisers.forEach(fundraiser => completedContainer.appendChild(createCard(fundraiser)));
-    } else {
+    }
+    else {
         completedContainer.innerHTML = "<p class='no-fundraisers'>No completed fundraisers available.</p>";
     }
 }
@@ -30,17 +28,17 @@ function filterCards() {
     const categoryDropdown = document.getElementById("categoryDropdown");
     const category = categoryDropdown.value;
     const dynamicHeading = document.getElementById("dynamicHeading");
-
     // Update the dynamic heading based on the selected category
-    if (category === "all") {
+    if(category === "all") {
         dynamicHeading.textContent = "All Categories";
-    } else if (category === "completed") {
+    }
+    else if (category === "completed") {
         dynamicHeading.textContent = "Completed Fundraisers";
-    } else {
+    }
+    else {
         const selectedOption = categoryDropdown.options[categoryDropdown.selectedIndex].text;
         dynamicHeading.textContent = selectedOption;
     }
-
     // Filter fundraisers
     const filteredFundraisers = fundraisers.filter(fundraiser => {
         const matchesCategory =
@@ -50,10 +48,8 @@ function filterCards() {
         const matchesSearch = fundraiser.title.toLowerCase().includes(searchInput);
         return matchesCategory && matchesSearch;
     });
-
     renderFundraisers(filteredFundraisers);
 }
-
 
 // Create a single card
 function createCard(data) {
@@ -86,7 +82,6 @@ function createCard(data) {
     cardContent.appendChild(title);
     cardContent.appendChild(person);
     cardContent.appendChild(stats);
-
     // Add "Donate Now" button for active fundraisers
     if (data.status.toLowerCase() !== "completed") {
         const button = document.createElement("button");
@@ -96,10 +91,8 @@ function createCard(data) {
         });
         cardContent.appendChild(button);
     }
-
     card.appendChild(img);
     card.appendChild(cardContent);
-
     return card;
 }
 

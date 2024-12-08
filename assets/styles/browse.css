@@ -151,8 +151,8 @@ h2 {
 @media (max-width: 768px) {
     .banner {
         background-color: #ccc;
-        height: 80px; /* Adjust the height for smaller screens */
-        background-size: contain; /* Ensure the image fits within the banner area */
+        height: 80px;
+        background-size: contain;
     }
     .search-section {
         flex-direction: column;
