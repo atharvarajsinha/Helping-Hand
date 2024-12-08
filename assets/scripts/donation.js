@@ -84,7 +84,6 @@ function createCards(data) {
         button.addEventListener("click", () => {
             window.location.href = `donation.html?id=${item.id}`;
         });
-        
 
         cardContent.appendChild(title);
         cardContent.appendChild(person);
