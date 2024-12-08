@@ -13,6 +13,7 @@
 <body>
     <div include-html="navbar.html"></div>
 
+    <!--Hero Section-->
     <section class="banner">
         <div class="content-container">
             <h1>Need funds to pay for a medical emergeny or social cause?</h1>
@@ -31,6 +32,7 @@
         </div>
     </section>
 
+    <!--Active Fundraisers-->
     <div class="section">
         <h1>Trending Fundraisers</h1>
         <h2>View the fundraisers that are most active right now</h2>
@@ -40,6 +42,7 @@
         </div>
     </div>
 
+    <!--Stand Out Section-->
     <div class="section" id="sec2">
         <h1>Why We Stand Out</h1>
         <div class="card-container">
@@ -67,6 +70,7 @@
         </div>
     </div>
 
+    <!--Service Section-->
     <div class="services-section" id="services">
         <h1>Services</h1>
         <!-- Service: Medical -->
@@ -181,14 +185,15 @@
         </div>
     </div>
 
+    <!-- Contact Section -->
     <div class="contact-section" id="contact">
         <div class="container">
             <div class="contact-left">
                 <h2>Contact Information</h2>
                 <p><i class="fas fa-phone"></i> Phone: +91 12345 67890</p>
                 <p><i class="fas fa-envelope"></i> Email: support@helpinghand.com</p>
-                <p><i class="fas fa-map-marker-alt"></i> Address: Neelkanth Hostel, Graphic Era Hill University, Bhimtal, Uttarakhand, India
-                </p>
+                <p><i class="fas fa-map-marker-alt"></i> Address: Neelkanth Hostel, Graphic Era Hill University,
+                    Bhimtal, Uttarakhand, India</p>
                 <div class="map">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3476.8260991648995!2d79.52827157503589!3d29.37538064996129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a0987622d2a7f3%3A0x8a1cf97c55e9e156!2sGraphic%20Era%20Hill%20University%20-%20Bhimtal%20Campus!5e0!3m2!1sen!2sin!4v1733639410612!5m2!1sen!2sin"
@@ -200,7 +205,7 @@
 
             <div class="contact-right">
                 <h2>Send Us a Message</h2>
-                <form class="contact-form">
+                <form class="contact-form" id="contact-form">
                     <div class="form-group">
                         <label for="name">Your Name</label>
                         <input type="text" id="name" name="name" placeholder="Enter your name" required>
@@ -215,10 +220,15 @@
                             required></textarea>
                     </div>
                     <button type="submit">Send Message</button>
+                    <div id="loader" style="display: none;">
+                        <div class="spinner"></div>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <button id="scrollToTopBtn" title="Go to top">↑</button>
 
