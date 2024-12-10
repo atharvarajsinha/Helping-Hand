@@ -3,55 +3,90 @@ const fundraiserId = parseInt(urlParams.get("id"), 10);
 const fundraisers = JSON.parse(localStorage.getItem("fundraiserData")) || [];
 const fundraiser = fundraisers.find((item) => item.id === fundraiserId);
 
-if(!fundraiser) {
+if (!fundraiser) {
     alert("Invalid fundraiser ID.");
     window.location.href = "home.html";
 }
 
 document.getElementById("fundraiser-title").textContent = fundraiser.title;
 document.getElementById("fundraiser-image").src = fundraiser.image;
-document.getElementById("fundraiser-person").textContent = "By: "+fundraiser.person;
-document.getElementById("fundraiser-description").textContent = "Description: "+fundraiser.description;
+document.getElementById("fundraiser-person").textContent = "By: " + fundraiser.person;
+document.getElementById("fundraiser-description").textContent = "Description: " + fundraiser.description;
 document.getElementById("fundraiser-total").textContent = fundraiser.amountToBeRaised;
 document.getElementById("fundraiser-raised").textContent = fundraiser.amountRaised;
+
 document.getElementById("donation-form").addEventListener("submit", (e) => {
     e.preventDefault();
-    const person = fundraiser.person;
+
     const donorName = document.getElementById("donor-name").value.trim();
-    let donationAmount = parseInt(document.getElementById("donation-amount").value, 10);
+    const donationAmount = parseInt(document.getElementById("donation-amount").value, 10);
+
     const amountRaised = parseInt(fundraiser.amountRaised.replace("Rs. ", ""), 10);
     const amountToBeRaised = parseInt(fundraiser.amountToBeRaised.replace("Rs. ", ""), 10);
     const remainingAmount = amountToBeRaised - amountRaised;
 
-    if(remainingAmount===0) {
-        alert(`Fundraiser is Completed`);
+    if (!donorName || isNaN(donationAmount)) {
+        alert("Please fill in all the fields correctly.");
+        return;
+    }
+
+    if (remainingAmount === 0) {
+        alert(`Fundraiser is already completed.`);
         document.getElementById("donation-form").reset();
         return;
     }
-    if(donationAmount < 50 && remainingAmount >= 50) {
+
+    if (donationAmount < 50 && remainingAmount >= 50) {
         alert("Minimum donation amount is Rs. 50.");
         return;
     }
-    if(donationAmount > remainingAmount) {
+
+    if (donationAmount > remainingAmount) {
         alert(`You can only donate up to Rs. ${remainingAmount}.`);
         return;
     }
-    fundraiser.amountRaised = `Rs. ${amountRaised + donationAmount}`;
-    if(amountRaised + donationAmount >= amountToBeRaised) {
+
+    payment(donorName, donationAmount);
+});
+
+function payment(donorName, donationAmount) {
+    /*const options = {
+        key: "YOUR_RAZORPAY_KEY",
+        amount: donationAmount * 100,
+        currency: "INR",
+        name: fundraiser.person,
+        description: `Donation to ${fundraiser.person} of Rs. ${donationAmount}`,
+        image: "assets/images/logo.png",
+        handler: function (response) {
+
+        },
+        prefill: {
+            name: donorName,
+        },
+        theme: {
+            color: "#3399cc",
+        },
+    };
+
+    const rzp = new Razorpay(options);
+    rzp.open();*/
+    const updatedAmountRaised = parseInt(fundraiser.amountRaised.replace("Rs. ", ""), 10) + donationAmount;
+    fundraiser.amountRaised = `Rs. ${updatedAmountRaised}`;
+    if (updatedAmountRaised >= parseInt(fundraiser.amountToBeRaised.replace("Rs. ", ""), 10)) {
         fundraiser.status = "completed";
     }
     const updatedFundraisers = fundraisers.map((item) =>
         item.id === fundraiserId ? fundraiser : item
     );
+
     localStorage.setItem("fundraiserData", JSON.stringify(updatedFundraisers));
-    alert(`Thank You ${donorName} for giving the Donation of Rs. ${donationAmount} to ${person}!`);
+    alert(`Thank you, ${donorName}, for your donation of Rs. ${donationAmount}!`);
     document.getElementById("fundraiser-raised").textContent = fundraiser.amountRaised;
     document.getElementById("donation-form").reset();
-});
+}
 
 function createCards(data) {
     const cardContainer = document.getElementById("card-container");
-
     cardContainer.innerHTML = "";
 
     data.forEach((item) => {
@@ -75,9 +110,7 @@ function createCards(data) {
 
         const stats = document.createElement("div");
         stats.classList.add("card-stats");
-        stats.innerHTML = `Amount to be Raised: <span>${item.amountToBeRaised}</span>
-                           <br>
-                           Amount Raised: <span>${item.amountRaised}</span>`;
+        stats.innerHTML = `Amount to be Raised: <span>${item.amountToBeRaised}</span><br>Amount Raised: <span>${item.amountRaised}</span>`;
 
         const button = document.createElement("button");
         button.textContent = "Donate Now";
@@ -98,11 +131,17 @@ function createCards(data) {
 }
 
 function loadActiveFundraisers() {
-    const localData = JSON.parse(localStorage.getItem('fundraiserData')) || [];
-    const activeFundraisers = localData.filter((item) => item.status === "active" && item.category===fundraiser.category && item.id!=fundraiserId).slice(0, 3);
-    if(activeFundraisers.length === 0) {
-        document.getElementById('noCard').style.display = 'block';
+    const localData = JSON.parse(localStorage.getItem("fundraiserData")) || [];
+    const activeFundraisers = localData
+        .filter((item) => item.status === "active" && item.category === fundraiser.category && item.id !== fundraiserId)
+        .slice(0, 3);
+
+    if (activeFundraisers.length === 0) {
+        document.getElementById("noCard").style.display = "block";
+    } else {
+        document.getElementById("noCard").style.display = "none";
+        createCards(activeFundraisers);
     }
-    createCards(activeFundraisers);
 }
+
 loadActiveFundraisers();
