@@ -1,50 +1,15 @@
-function includeHTML(callback) {
-    let elements = document.querySelectorAll("[include-html]");
-    let totalElements = elements.length;
-    let processedElements = 0;
-    elements.forEach((elmnt) => {
-        let file = elmnt.getAttribute("include-html");
-        if (file) {
-            let xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState === 4) {
-                    if (this.status === 200) {
-                        elmnt.innerHTML = this.responseText;
-                    } else if (this.status === 404) {
-                        elmnt.innerHTML = "Page not found.";
-                    }
-                    elmnt.removeAttribute("include-html");
-                    processedElements++;
-                    if (processedElements === totalElements && callback) {
-                        callback();
-                    }
-                }
-            };
-            xhttp.open("GET", file, true);
-            xhttp.send();
-        } else {
-            processedElements++;
-            if (processedElements === totalElements && callback) {
-                callback();
-            }
-        }
-    });
-}
-
 function toggleMenu() {
     const menu = document.querySelector(".toggle-menu");
-    if (menu) {
+    if(menu) {
         menu.classList.toggle("show");
     }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    includeHTML(() => {
-        const toggleButton = document.querySelector(".toggle-btn");
-        if (toggleButton) {
-            toggleButton.addEventListener("click", toggleMenu);
-        }
-    });
+    const toggleButton = document.querySelector(".toggle-btn");
+    if(toggleButton) {
+        toggleButton.addEventListener("click", toggleMenu);
+    }
 });
 
 function createCards(data) {
