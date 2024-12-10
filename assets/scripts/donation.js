@@ -80,7 +80,7 @@ function payment(donorName, donationAmount) {
     );
 
     localStorage.setItem("fundraiserData", JSON.stringify(updatedFundraisers));
-    alert(`Thank you, ${donorName}, for your donation of Rs. ${donationAmount}!`);
+    alert(`Thank you, ${donorName}, for your donation of Rs. ${donationAmount} to ${fundraiser.person}!`);
     document.getElementById("fundraiser-raised").textContent = fundraiser.amountRaised;
     document.getElementById("donation-form").reset();
 }

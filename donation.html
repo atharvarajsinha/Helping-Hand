@@ -5,12 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donate : Helping Hand</title>
     <link rel="icon" href="assets/images/logo.png" type="image/x-png">
+    <link rel="stylesheet" href="assets/styles/navbar.css">
+    <link rel="stylesheet" href="assets/styles/footer.css">
     <link rel="stylesheet" href="assets/styles/donation.css">
     <script src="script.js"></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 <body>
-    <div include-html="navbar.html"></div>
+    <!--Navbar-->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="assets/images/logo.png" alt="Helping Hand Logo">
+            <span>Helping Hand</span>
+        </div>
+            
+        <div class="links">
+            <a href="home.html">Home</a>
+            <a href="browse.html">Browse Fundraiser</a>
+            <a href="fundraiser.html">Start a Fundraiser</a>
+            <a href="home.html#services">Services</a>
+            <a href="home.html#about">About Us</a>
+            <a href="home.html#contact">Contact Us</a>
+        </div>
+            
+        <button class="toggle-btn">☰</button>
+            
+        <div class="toggle-menu">
+            <a href="home.html">Home</a>
+            <a href="browse.html">Browse Fundraiser</a>
+            <a href="fundraiser.html">Start a Fundraiser</a>
+            <a href="home.html#services">Services</a>
+            <a href="home.html#about">About Us</a>
+            <a href="home.html#contact">Contact Us</a>
+        </div>
+    </nav>
 
     <div class="container">
         <h1 id="fundraiser-title"></h1>
