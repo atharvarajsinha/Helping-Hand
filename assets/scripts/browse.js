@@ -32,9 +32,6 @@ function filterCards() {
     if(category === "all") {
         dynamicHeading.textContent = "All Categories";
     }
-    else if (category === "completed") {
-        dynamicHeading.textContent = "Completed Fundraisers";
-    }
     else {
         const selectedOption = categoryDropdown.options[categoryDropdown.selectedIndex].text;
         dynamicHeading.textContent = selectedOption;
@@ -43,8 +40,7 @@ function filterCards() {
     const filteredFundraisers = fundraisers.filter(fundraiser => {
         const matchesCategory =
             category === "all" ||
-            fundraiser.category.toLowerCase() === category.toLowerCase() ||
-            (category === "completed" && fundraiser.status === "completed");
+            fundraiser.category.toLowerCase() === category.toLowerCase();
         const matchesSearch = fundraiser.title.toLowerCase().includes(searchInput);
         return matchesCategory && matchesSearch;
     });
